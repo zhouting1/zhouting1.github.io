@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		canvas{
+			background: #000;
+		}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="400"></canvas>
+		<script type="text/javascript">
+			var ctx=document.getElementById("canvas").getContext("2d");
+			var x=15,y=15,stepX=1,stepY=1;
+			ctx.strokeStyle="#fff";
+			ctx.strokeRect(49,49,401,301);
+			ctx.translate(50,50);
+			ctx.fillStyle="red";
+			
+			
+			setInterval(function(){
+				ctx.clearRect(0,0,400,300);
+				x+=stepX;
+				y+=stepY;
+				if(x>=385||x<=15){stepX=-stepX};
+				if(y>=285||y<=15){stepY=-stepY};
+				ctx.beginPath();
+				ctx.arc(x,y,15,0,2*Math.PI,false);
+				ctx.closePath();
+				ctx.fill();
+			},5);
+		</script>
+	</body>
+</html>
